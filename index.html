@@ -1,0 +1,44 @@
+<html>
+    <title>vue - dashboard</title>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <style>
+            *{
+                font-family: monospace;
+            }
+            ul{
+                margin:0px;
+                padding:0px;
+            }
+            li{
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            #geo{
+                width: 480px;
+                height:440px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+                <navbar-top v-bind:text="message1"></navbar-top>
+                <div class="flex flex-row items-start">
+                    <graph-scatterplot v-on:update-climate="updateClimate" v-bind:climate="climate"></graph-scatterplot>
+                    <graph-geochart v-bind:climate="climate"></graph-geochart>
+                </div>
+        </div>
+
+         <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
